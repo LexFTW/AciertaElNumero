@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)){{
                     String numberText = String.valueOf(editText.getText());
-                    adivinarNum(numberText, rand);
+                    adivinarNum(numberText, rand)
                     return true;
                 }}
                 return false;
