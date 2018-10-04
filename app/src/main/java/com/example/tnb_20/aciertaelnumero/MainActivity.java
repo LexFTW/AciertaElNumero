@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER)){{
                     String numberText = String.valueOf(editText.getText());
-                    adivinarNum(numberText, rand)
+                    adivinarNum(numberText, rand);
                     return true;
                 }}
                 return false;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         int number = Integer.parseInt(numberText);
 
         if(number == rand){
-            generateToast("Enhorabuena Fiera!");
+            generateToast("Enhorabuena! Has acertado el número :)");
         }else if(number > rand){
             generateToast("El número es más pequeño");
         }else if(number < rand){
