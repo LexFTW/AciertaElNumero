@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        onPlay();
+    }
+
+    protected void onPlay(){
         final Button button = findViewById(R.id.button);
         final EditText editText = findViewById(R.id.editText);
         Random random = new Random();
@@ -46,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         int number = Integer.parseInt(numberText);
 
         if(number == rand){
-            generateToast("Enhorabuena! Has acertado el número :)");
+            generateToast("Enhorabuena! Has acertado el número :). Se generará un nuevo número");
+            onPlay();
         }else if(number > rand){
             generateToast("El número es más pequeño");
         }else if(number < rand){
