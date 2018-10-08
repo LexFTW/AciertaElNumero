@@ -1,6 +1,7 @@
 package com.example.tnb_20.aciertaelnumero;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.Random;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onPlay(){
         final Button button = findViewById(R.id.button);
+        final Button button3 = findViewById(R.id.button3);
         final EditText editText = findViewById(R.id.editText);
         Random random = new Random();
         final int rand = random.nextInt(100);
@@ -42,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String numberText = String.valueOf(editText.getText());
                 adivinarNum(numberText, rand);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FameActivity.class);
+                startActivity(intent);
             }
         });
     }
