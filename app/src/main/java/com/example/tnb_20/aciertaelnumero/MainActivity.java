@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FameActivity.class);
-                startActivity(intent);
+                startActivityIfNeeded(intent, 0);
             }
         });
     }
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void generateToast(String answer){
+    public void generateToast(String answer){
         Context context = getApplicationContext();
         CharSequence text = answer;
         int duration = Toast.LENGTH_SHORT;
