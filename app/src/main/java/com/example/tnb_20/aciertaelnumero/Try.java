@@ -7,7 +7,7 @@ public class Try {
 
     public Try(int tries){
         this.tries = tries;
-        this.player_name = "Alexis";
+        this.player_name = "Unknown";
     }
 
     public Try(int tries, String player_name){
