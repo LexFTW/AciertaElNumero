@@ -1,14 +1,11 @@
 package com.example.tnb_20.aciertaelnumero;
 
+import java.util.ArrayList;
+
 public class Try {
 
     private int tries;
     private String player_name;
-
-    public Try(int tries){
-        this.tries = tries;
-        this.player_name = "Unknown";
-    }
 
     public Try(int tries, String player_name){
         this.tries = tries;
@@ -25,6 +22,6 @@ public class Try {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Nombre";
     }
 }

@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(number == rand){
             generateToast("Enhorabuena! Has acertado el número :). Se generará un nuevo número");
+            tries.add(new Try(intentos, "Nombre"));
             onPlay();
         }else if(number > rand){
             generateToast("El número es más pequeño" + rand);

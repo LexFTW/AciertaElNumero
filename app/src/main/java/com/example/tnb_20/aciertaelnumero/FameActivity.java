@@ -8,17 +8,13 @@ import java.util.ArrayList;
 
 public class FameActivity extends AppCompatActivity {
 
-    // Atributos de la Clase:
-    private ArrayList<Try> tries;
-    final TextView fame = findViewById(R.id.fame);;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fame_activity);
-        this.tries = MainActivity.tries;
-        for (Try tri: tries){
-            fame.setText(tri.getPlayer_name() + tri.getTries() + "\n");
+        ArrayList<Try> tries = MainActivity.tries;
+        for (Try trie: tries) {
+            System.out.println(trie.toString());
         }
     }
 
