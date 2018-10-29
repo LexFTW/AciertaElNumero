@@ -18,7 +18,7 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Try> tries = new ArrayList<Try>();
+    public static ArrayList<Try> tries = new ArrayList<Try>();
     private int intentos = 0;
 
     @Override
@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), FameActivity.class);
-                intent.putExtra("tries", tries);
                 startActivityIfNeeded(intent, 0);
             }
         });
@@ -69,30 +68,20 @@ public class MainActivity extends AppCompatActivity {
 
         if(number == rand){
             generateToast("Enhorabuena! Has acertado el número :). Se generará un nuevo número");
-            final Dialog dialog = new Dialog(MainActivity.this);
-            dialog.setContentView(R.layout.registeruser);
-            dialog.setTitle("Registro de Usuario");
-            dialog.show();
-            Button register = dialog.findViewById(R.id.registerNewUser);
-            register.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    EditText textName = dialog.findViewById(R.id.nameInput);
-                    String name = textName.getText().toString();
-                    tries.add(new Try(intentos, name));
-                    dialog.dismiss();
-                }
-            });
             onPlay();
         }else if(number > rand){
-            generateToast("El número es más pequeño");
+            generateToast("El número es más pequeño" + rand);
             intentos = intentos + 1;
         }else if(number < rand){
-            generateToast("El número es más grande");
+            generateToast("El número es más grande" + rand);
             intentos = intentos + 1;
         }
     }
 
+    /*
+     * Métode per configurar el text del Toast
+     * @param String del texte que contindrà el Toast
+     */
     public void generateToast(String answer){
         Context context = getApplicationContext();
         CharSequence text = answer;
