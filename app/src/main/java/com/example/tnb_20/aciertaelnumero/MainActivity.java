@@ -12,13 +12,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static ArrayList<Try> tries = new ArrayList<Try>();
+    public static List<Try> tries = new ArrayList<Try>();
     private int intentos = 0;
 
     @Override

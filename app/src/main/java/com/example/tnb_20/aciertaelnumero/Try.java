@@ -2,7 +2,7 @@ package com.example.tnb_20.aciertaelnumero;
 
 import java.util.ArrayList;
 
-public class Try {
+public class Try implements Comparable<Try>{
 
     private int tries;
     private String player_name;
@@ -21,7 +21,13 @@ public class Try {
     }
 
     @Override
+    public int compareTo(Try trye){
+        return this.tries - trye.tries;
+        //return Integer.compare(this.tries, trye.tries);
+    }
+
+    @Override
     public String toString() {
-        return "Nombre";
+        return "Try [Player Name: " + player_name + ", Intentos: " + tries + "]";
     }
 }
