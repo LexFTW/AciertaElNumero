@@ -3,6 +3,7 @@ package com.example.tnb_20.aciertaelnumero;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -70,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
         if(number == rand){
             generateToast("Enhorabuena! Has acertado el número :). Se generará un nuevo número");
             tries.add(new Try(intentos, "Nombre"));
+            Try tryCurrentPlayer = new Try(intentos,"Nombre");
+            escribirFichero(tryCurrentPlayer);
             onPlay();
         }else if(number > rand){
             generateToast("El número es más pequeño" + rand);
@@ -91,5 +95,21 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+    }
+
+    private void escribirFichero(Try t){
+        try {
+            OutputStreamWriter fout =
+                    new OutputStreamWriter(
+                            openFileOutput("jugadors.txt", Context.MODE_PRIVATE));
+
+            fout.write(t.getTries() + "," + t.getPlayer_name());
+            fout.append("\r\n");
+            fout.close();
+
+        } catch (Exception  e) {
+            System.out.println("Error: No se pudo generar el archivo" );
+            e.printStackTrace();
+        }
     }
 }

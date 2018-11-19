@@ -21,7 +21,7 @@ public class Try implements Comparable<Try>{
     }
 
     @Override
-    public int compareTo(Try trye){
+    public int compareTo(Try trye) {
         return this.tries - trye.tries;
         //return Integer.compare(this.tries, trye.tries);
     }
