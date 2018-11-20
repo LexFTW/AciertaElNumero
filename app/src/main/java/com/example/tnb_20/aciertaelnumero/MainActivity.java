@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
-    private void escribirFichero(Try t){
+    private void escribirFichero(Try t) {
         try {
             OutputStreamWriter fout =
                     new OutputStreamWriter(
@@ -107,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
             fout.append("\r\n");
             fout.close();
 
-        } catch (Exception  e) {
-            System.out.println("Error: No se pudo generar el archivo" );
+        } catch (Exception e) {
+            System.out.println("Error: No se pudo generar el archivo");
             e.printStackTrace();
         }
     }
