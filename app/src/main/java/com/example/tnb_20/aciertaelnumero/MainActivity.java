@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             OutputStreamWriter fout =
                     new OutputStreamWriter(
-                            openFileOutput("jugadors.txt", Context.MODE_PRIVATE));
+                            openFileOutput("jugadors.txt", Context.MODE_APPEND));
 
             fout.write(t.getTries() + "," + t.getPlayer_name());
             fout.append("\r\n");
