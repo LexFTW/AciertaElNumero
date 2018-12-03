@@ -1,11 +1,14 @@
 package com.example.tnb_20.aciertaelnumero;
 
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 
 public class Try implements Comparable<Try>{
 
     private int tries;
     private String player_name;
+    private ImageView image;
 
     public Try(int tries, String player_name){
         this.tries = tries;
@@ -28,6 +31,6 @@ public class Try implements Comparable<Try>{
 
     @Override
     public String toString() {
-        return "Try [Player Name: " + player_name + ", Intentos: " + tries + "]";
+        return "Player Name: " + player_name + ", Intentos: " + tries;
     }
 }

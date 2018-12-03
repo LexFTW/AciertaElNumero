@@ -71,9 +71,22 @@ public class MainActivity extends AppCompatActivity {
 
         if(number == rand){
             generateToast("Enhorabuena! Has acertado el número :). Se generará un nuevo número");
-            tries.add(new Try(intentos, "Nombre"));
-            Try tryCurrentPlayer = new Try(intentos,"Nombre");
-            escribirFichero(tryCurrentPlayer);
+            final Dialog dialog = new Dialog(MainActivity.this);
+            dialog.setContentView(R.layout.registeruser);
+            dialog.setTitle("Registro de Usuario");
+            dialog.show();
+            Button register = dialog.findViewById(R.id.registerNewUser);
+            register.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    EditText textName = dialog.findViewById(R.id.nameInput);
+                    String name = textName.getText().toString();
+                    // tries.add(new Try(intentos, name));
+                    Try tryCurrentPlayer = new Try(intentos,name);
+                    escribirFichero(tryCurrentPlayer);
+                    dialog.dismiss();
+                }
+            });
             onPlay();
         }else if(number > rand){
             generateToast("El número es más pequeño" + rand);

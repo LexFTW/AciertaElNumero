@@ -10,18 +10,22 @@
             android:ems="10"
             android:id="@+id/nameInput"
             tools:hint="Añade tu nombre"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="64dp" tools:padding="5dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="48dp" tools:padding="5dp"
+            app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:text="Nombre:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nameLabel" tools:padding="5dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="32dp" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="64dp" tools:textSize="18sp"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" tools:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"/>
     <Button
             android:text="Registrar Intento"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" tools:layout_editor_absoluteY="447dp"
-            tools:layout_editor_absoluteX="207dp" android:id="@+id/registerNewUser"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/registerNewUser" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/nameInput"/>
 </android.support.constraint.ConstraintLayout>

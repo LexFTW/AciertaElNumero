@@ -35,6 +35,8 @@ public class FameActivity extends AppCompatActivity {
             BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("jugadors.txt")));
             String texto;
 
+            tries.clear();
+
             while((texto = fin.readLine())!=null){
                 String[] cadena = texto.split(",");
                 tries.add(new Try(Integer.parseInt(cadena[0]), cadena[1]));
