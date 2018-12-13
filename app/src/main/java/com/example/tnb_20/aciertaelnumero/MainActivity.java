@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public static List<Try> tries = new ArrayList<Try>();
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
-    private File dir = new File("data" + File.separator + "data" + File.separator + "com.example.tnb_20.endavina" + File.separator + "photos");
+    private File dir = new File("data" + File.separator + "data" + File.separator + "com.example.tnb_20.aciertaelnumero" + File.separator + "photos");
     private File imagePlayer;
     private boolean havePhoto;
     private int intentos = 0;
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
 
             OutputStream os = null;
             try {
-                imagePlayer = new File(dir, dir.length()+".png");
+                imagePlayer = new File(dir, (tries.size()+1)+".png");
                 os = new FileOutputStream(imagePlayer);
                 imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
             } catch(IOException e) {

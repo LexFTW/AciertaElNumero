@@ -6,12 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class FameActivity extends AppCompatActivity {
 
     ArrayAdapter<Try> arrAdapter;
@@ -32,7 +26,7 @@ public class FameActivity extends AppCompatActivity {
                 }
                 // "Pintem" valors (també quan es refresca)
                 ((TextView) convertView.findViewById(R.id.name)).setText(getItem(pos).getPlayer_name());
-                ((TextView) convertView.findViewById(R.id.tries)).setText(Integer.toString(getItem(pos).getTries()));
+                ((TextView) convertView.findViewById(R.id.trie)).setText(Integer.toString(getItem(pos).getTries()));
                 ((ImageView) convertView.findViewById(R.id.imgView)).setImageURI(getItem(pos).getUriImage());
                 return convertView;
             }
