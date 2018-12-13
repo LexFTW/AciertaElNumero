@@ -1,6 +1,6 @@
 package com.example.tnb_20.aciertaelnumero;
 
-import android.widget.ImageView;
+import android.net.Uri;
 
 import java.util.ArrayList;
 
@@ -8,11 +8,12 @@ public class Try implements Comparable<Try>{
 
     private int tries;
     private String player_name;
-    private ImageView image;
+    private Uri image;
 
-    public Try(int tries, String player_name){
+    public Try(int tries, String player_name, Uri image){
         this.tries = tries;
         this.player_name = player_name;
+        this.image = image;
     }
 
     public int getTries() {
@@ -22,6 +23,8 @@ public class Try implements Comparable<Try>{
     public String getPlayer_name() {
         return player_name;
     }
+
+    public Uri getUriImage(){return image;}
 
     @Override
     public int compareTo(Try trye) {

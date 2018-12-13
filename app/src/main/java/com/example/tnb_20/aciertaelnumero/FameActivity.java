@@ -2,8 +2,9 @@ package com.example.tnb_20.aciertaelnumero;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,41 +14,31 @@ import java.util.List;
 
 public class FameActivity extends AppCompatActivity {
 
-    List<Try> tries = MainActivity.tries;
+    ArrayAdapter<Try> arrAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fame_activity);
-        leerFichero();
-        Collections.sort(tries);
-        final TextView fame = findViewById(R.id.fame);
-        fame.setText("");
-        for (Try trie: tries) {
-            fame.setText(fame.getText() + trie.toString() + "\n");
-            System.out.println(trie.toString());
-        }
 
-    }
-
-    private void leerFichero(){
-        try{
-            BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("jugadors.txt")));
-            String texto;
-
-            tries.clear();
-
-            while((texto = fin.readLine())!=null){
-                String[] cadena = texto.split(",");
-                tries.add(new Try(Integer.parseInt(cadena[0]), cadena[1]));
+         arrAdapter = new ArrayAdapter<Try>(this, R.layout.fame_activity, MainActivity.tries){
+            @Override
+            public View getView(int pos, View convertView, ViewGroup container)
+            {
+                // getView ens construeix el layout i hi "pinta" els valors de l'element en la posició pos
+                if( convertView==null ) {
+                    // inicialitzem l'element la View amb el seu layout
+                    convertView = getLayoutInflater().inflate(R.layout.player_ranking, container, false);
+                }
+                // "Pintem" valors (també quan es refresca)
+                ((TextView) convertView.findViewById(R.id.name)).setText(getItem(pos).getPlayer_name());
+                ((TextView) convertView.findViewById(R.id.tries)).setText(Integer.toString(getItem(pos).getTries()));
+                ((ImageView) convertView.findViewById(R.id.imgView)).setImageURI(getItem(pos).getUriImage());
+                return convertView;
             }
+        };
 
-            fin.close();
-        }
-        catch (Exception ex){
-            System.out.println("Error: No se pudo generar el archivo" );
-            ex.printStackTrace();
-        }
+        ListView lv = (ListView) findViewById(R.id.listView);
+        lv.setAdapter(arrAdapter);
     }
-
 }
